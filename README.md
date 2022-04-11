@@ -16,5 +16,5 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Notes
-Get your own RAWG API key from [RAWG]'s website(https://rawg.io)
+Get your own RAWG API key from [RAWG](https://rawg.io)'s website.
 and add it to the .env with name REACT_APP_RAWG_API_KEY
