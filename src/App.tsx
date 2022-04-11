@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav";
+import GameListPage from "./pages/GameListPage";
+import GameDetailPage from "./pages/GameDetailPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { AnimatePresence } from "framer-motion";
+import HomePage from "./pages/HomePage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col min-h-screen bg-slate-50">
+      <Nav />
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/popular" element={<GameListPage />} />
+          <Route path="/new" element={<GameListPage />} />
+          <Route path="/upcoming" element={<GameListPage />} />
+          <Route path="/search" element={<GameListPage />} />
+          <Route path="/game/:gameSlug" element={<GameDetailPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
