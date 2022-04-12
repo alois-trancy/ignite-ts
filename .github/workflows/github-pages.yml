@@ -14,6 +14,8 @@ jobs:
     
     - name: Build
       run: npm install
+      env:
+        REACT_APP_RAWG_API_KEY=${{ secrets.REACT_APP_RAWG_API_KEY }}
 
     - name: Deploy
       run: |
