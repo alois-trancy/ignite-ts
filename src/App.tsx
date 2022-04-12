@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
+      Testing GH workflow
       <Nav />
       <AnimatePresence>
         <Routes>

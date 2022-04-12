@@ -1,0 +1,23 @@
+---
+name: Build and deploy Ignite-ts to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: Checkout
+      run: actions/checkout@v3
+    
+    - name: Build
+      run: npm run install
+
+    - name: Deploy
+      run: 
+        git config --global.user.name 'alois~trancy'
+        git config --global.user.email 'git.arthur.stabrigida@gmail.com'
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github }}
+        npm run deploy
